@@ -1,0 +1,40 @@
+const str = "<!DOCTYPE html><HTML lang=\"ko\"><BODY><P>BOOST<IMG SRC=\"codesquad.kr\"><BR/></IMG></P><P>CAMP</P></BODY></HTML>";
+
+const dom = XMLParser(str);
+
+let oElement = dom.elementByAttribute("lang", "ko");
+
+let pElement = dom.findXPath("/HTML/BODY/P[1]");
+
+console.log(pElement);
+
+
+{ element : 'P',
+
+    text : 'BOOST', 
+
+    children: [
+
+        { element : 'IMG',
+
+            attributes : [
+
+                { name : 'SRC', value : 'codesquad.kr'}
+
+            ]
+
+        },
+
+        {   element: 'BR'  }        
+                
+    ]
+
+}
+
+
+let pElement = dom.findXPath("/HTML/BODY/P[3]");
+
+console.log(pElement);
+
+
+//ERROR: "찾으려는 경로가 없습니다."
