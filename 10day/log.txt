@@ -1,0 +1,5 @@
+a.js 2021-07-30-13-32
+b.cpp 2021-07-30-15-02
+c.py 2021-07-30-15-03
+
+fs.appendFileSync('.py'. 'py is appended')

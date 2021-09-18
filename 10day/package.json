@@ -1,0 +1,12 @@
+{
+  "name": "10day",
+  "version": "1.0.0",
+  "description": "vmgit.js",
+  "main": "vmgit.js",
+  "scripts": {
+    "start": "node shell.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

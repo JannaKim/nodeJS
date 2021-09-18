@@ -1,0 +1,17 @@
+{
+  "name": "18day",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "json2csv": "^5.0.6"
+  }
+}

@@ -111,13 +111,15 @@ function checkAttributes(chunk, stc, top){ // attibute 시작 이전 공백 위�
 
 
 
+// # <  <>    <>    > <   >  <   >
+// # <P >
 
 function Tokenizer(line, paraphrased, stc, top){
     if(line.indexOf('<') < 0 && line.indexOf('>') <0){
         stc[top++] = line
         
         return
-    }
+    } // , 0
 
     let openeridx = 0;
     let closeridx = 0;
@@ -186,13 +188,17 @@ function Tokenizer(line, paraphrased, stc, top){
        //logMyErrors(e); // lass exception to error handler
        return e
    }
+   // arr [10]   = a[0] = stc
+   // arr [].Array
+   //await.push() 
+   // 
 
     let back = line.slice(tailopeneridx + 1, tailcloseridx)
     if((front != back) && (front != back.slice(1,))){ // 문제가 있다면 br 아니면 틀린형식이다.
         if(line.indexOf(front) < 0) {
             throw "ERROR: \"올바른 XML 형식이 아닙니다.\"";}
         let idx = line.indexOf('<BR')
-        let tmp = line.indexOf('<br')
+        let tmp = line.indexOf('<br') // 
         if(idx<tmp) idx = tmp
         if(idx + 4 >= line.length - 1){
             tailopeneridx = idx 
@@ -208,7 +214,12 @@ function Tokenizer(line, paraphrased, stc, top){
             throw "ERROR: \"올바른 XML 형식이 아닙니다..\"";
         }
     }
-    
+    // P
+    // [p]
+    // aaapaaa
+    //[Pp
+    // a== b  등호
+    // [Pp]
     if(front.match(/\b(P|p)\b/) && back.slice(1).match(/\b(P|p)\b/) && paraphrased == false){
         if(! openeridx) {
             parseParagraphs(line, stc ,top)}
@@ -225,6 +236,8 @@ function Tokenizer(line, paraphrased, stc, top){
 }
 
 
+// [ [] ] [[] ]
+
 let space = " ";
 function Parser(s, top, floor){
     if(top == 100) return false
@@ -234,7 +247,6 @@ function Parser(s, top, floor){
         return false;
     }
  
-
     if(Array.isArray(s[top]) == true) {
         Parser(s[top], 0, floor)
         if(s[top][2] != null) // 겹층

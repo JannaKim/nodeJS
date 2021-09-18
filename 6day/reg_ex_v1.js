@@ -33,7 +33,7 @@ class Stack {
   }
 
 
-const stack = new Stack(); // ?? const 가능?
+let stack = new Stack(); // ?? const 가능?
 
 
 
